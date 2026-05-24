@@ -41,6 +41,11 @@ export default function TodoForm({ addTask }) {
         <option>Learning</option>
         <option>Work</option>
         <option>Health</option>
+        <option>Essential</option>
+        <option>Home</option>
+        <option>Personal</option>
+        <option>Errands</option>
+        <option>Quick</option>
       </select>
 
       <input

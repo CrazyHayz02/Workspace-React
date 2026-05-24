@@ -183,7 +183,7 @@ function App() {
             <Route path="/login" element={<Login setIsAuthenticated={setIsAuthenticated} />} />
 
             {/* Protected Core Routes */}
-            <Route path="/dashboard" element={
+            <Route path="/" element={
               <ProtectedRoute isAuthenticated={isAuthenticated}>
                 <Dashboard />
               </ProtectedRoute>

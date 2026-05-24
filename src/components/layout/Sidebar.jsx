@@ -24,7 +24,7 @@ export default function Sidebar() {
       flexDirection: "column",
       gap: "0.5rem"
     }}>
-      <NavLink to="/dashboard" style={linkStyles}>Dashboard</NavLink>
+      <NavLink to="/" style={linkStyles}>Dashboard</NavLink>
       <NavLink to="/Notes" style={linkStyles}>Notes</NavLink>
       <NavLink to="/profile" style={linkStyles}>Profile</NavLink>
       <NavLink to="/settings" style={linkStyles}>Settings</NavLink>

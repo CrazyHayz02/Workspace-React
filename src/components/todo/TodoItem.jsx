@@ -19,7 +19,27 @@ export default function TodoItem({ task, index, deleteTask, editTask, toggleComp
     setIsEditing(false);
   }
 
-  // Shared structural aesthetic styles matching your main TodoForm fields
+  // 1. Dynamic Category Color Lookup System
+  const getCategoryStyles = (categoryName) => {
+    const colors = {
+      General:   { text: "#64748b", bg: "rgba(100, 116, 139, 0.15)" }, // Slate Gray
+      Learning:  { text: "#3b82f6", bg: "rgba(59, 130, 246, 0.15)" },  // Accent Blue
+      Work:      { text: "#a855f7", bg: "rgba(168, 85, 247, 0.15)" },  // Purple
+      Health:    { text: "#10b981", bg: "rgba(16, 185, 129, 0.15)" },  // Emerald Green
+      Essential: { text: "#ef4444", bg: "rgba(239, 68, 68, 0.15)" },   // Red Alert
+      Home:      { text: "#f59e0b", bg: "rgba(245, 158, 11, 0.15)" },   // Amber Orange
+      Personal:  { text: "#ec4899", bg: "rgba(236, 72, 153, 0.15)" },  // Rose Pink
+      Errands:   { text: "#06b6d4", bg: "rgba(6, 182, 212, 0.15)" },   // Cyan
+      Quick:     { text: "#14b8a6", bg: "rgba(20, 184, 166, 0.15)" }    // Teal
+    };
+
+    // Fallback default style if a custom category isn't matched
+    return colors[categoryName] || { text: "var(--accent)", bg: "var(--accent-bg)" };
+  };
+
+  const currentCategoryStyle = getCategoryStyles(task.category);
+
+  // Shared form input design variables
   const fieldStyle = {
     padding: "10px",
     borderRadius: "8px",
@@ -42,13 +62,12 @@ export default function TodoItem({ task, index, deleteTask, editTask, toggleComp
       listStyleType: "none"
     }}>
       {isEditing ? (
-        /* Inline Modifying Edit Form Block */
         <div style={{ display: "flex", gap: "10px", width: "100%" }}>
           <input 
             type="text" 
             value={editedText} 
             onChange={(e) => setEditedText(e.target.value)} 
-            style={{ ...fieldStyle, flex: 1 }} // Styled identical to creation input
+            style={{ ...fieldStyle, flex: 1 }} 
           />
 
           <select 
@@ -60,6 +79,11 @@ export default function TodoItem({ task, index, deleteTask, editTask, toggleComp
             <option>Learning</option>
             <option>Work</option>
             <option>Health</option>
+            <option>Essential</option>
+            <option>Home</option>
+            <option>Personal</option>
+            <option>Errands</option>
+            <option>Quick</option>
           </select>
 
           <input 
@@ -77,7 +101,6 @@ export default function TodoItem({ task, index, deleteTask, editTask, toggleComp
           </button>
         </div>
       ) : (
-        /* Regular View State */
         <>
           <div style={{ display: "flex", alignItems: "center", gap: "12px", flex: 1 }}>
             <span onClick={() => toggleComplete(index)} style={{ cursor: "pointer", fontSize: "18px" }}>
@@ -94,9 +117,20 @@ export default function TodoItem({ task, index, deleteTask, editTask, toggleComp
                 {task.text}
               </span>
               <div style={{ display: "flex", gap: "6px", marginTop: "4px" }}>
-                <span style={{ fontSize: "11px", padding: "2px 6px", borderRadius: "4px", backgroundColor: "var(--accent-bg)", color: "var(--accent)" }}>
+                
+                {/* 2. DYNAMICALLY STYLED CATEGORY PILL */}
+                <span style={{ 
+                  fontSize: "11px", 
+                  padding: "2px 8px", 
+                  borderRadius: "4px", 
+                  fontWeight: "600",
+                  backgroundColor: currentCategoryStyle.bg, 
+                  color: currentCategoryStyle.text,
+                  transition: "all 0.2s ease"
+                }}>
                   {task.category}
                 </span>
+
                 {task.dueDate && (
                   <span style={{ fontSize: "11px", padding: "2px 6px", borderRadius: "4px", backgroundColor: "var(--border)", color: "var(--text)" }}>
                     📅 {formatDate(task.dueDate)}
