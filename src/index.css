@@ -1,0 +1,131 @@
+:root {
+  --text: #5c5565;
+  --text-h: #0b0813;
+  --bg: #f9f9fa;
+  --card-bg: #ffffff;
+  --border: #e8e7ea;
+  --code-bg: #f4f3ec;
+  --accent: #9333ea;
+  --accent-bg: rgba(147, 51, 234, 0.08);
+  --accent-hover: rgba(147, 51, 234, 0.15);
+  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+
+  --sans: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --mono: ui-monospace, SFMono-Regular, Consolas, monospace;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Sync with system or manual dark mode classes */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text: #9ca3af;
+    --text-h: #f3f4f6;
+    --bg: #0f1015;
+    --card-bg: #16171d;
+    --border: #242631;
+    --code-bg: #1f2028;
+    --accent: #c084fc;
+    --accent-bg: rgba(192, 132, 252, 0.12);
+    --accent-hover: rgba(192, 132, 252, 0.2);
+    --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
+  }
+}
+
+/* Explicit class-driven override for your Context toggle switch if you use one */
+.dark {
+  --text: #9ca3af;
+  --text-h: #f3f4f6;
+  --bg: #0f1015;
+  --card-bg: #16171d;
+  --border: #242631;
+  --accent: #c084fc;
+  --accent-bg: rgba(192, 132, 252, 0.12);
+  --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+}
+.light {
+  --text: #5c5565;
+  --text-h: #0b0813;
+  --bg: #f9f9fa;
+  --card-bg: #ffffff;
+  --border: #e8e7ea;
+  --accent: #9333ea;
+  --accent-bg: rgba(147, 51, 234, 0.08);
+  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--sans);
+  background-color: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  overflow-x: hidden;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Typography elements */
+h1, h2, h3, h4 {
+  color: var(--text-h);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+h1 { font-size: 2.25rem; margin-bottom: 1.5rem; }
+h2 { font-size: 1.5rem; }
+
+/* Global Interactive Items */
+button {
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: 0.95rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background-color: var(--card-bg);
+  color: var(--text-h);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+button:hover {
+  background-color: var(--border);
+  border-color: var(--text);
+}
+
+/* Dashboard Component Shells */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 20px -5px rgba(0, 0, 0, 0.08);
+}
