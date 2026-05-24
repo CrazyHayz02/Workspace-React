@@ -6,10 +6,18 @@ A modern, responsive, and secure single-page workspace portal built using React.
 
 * **🔒 Gatekeeper Authentication Guard**: Implements a strict frontend security shell using `react-router-dom`. Anonymous traffic is automatically intercepted and redirected to a validated login workspace.
 * **📋 Controlled Sign-In Form**: Built completely with controlled inputs featuring live regex verification patterns and inline error message state clearings.
+![Login page](./Readme/zen_oVHYSinBEn.png)
 * **🌦️ Real-Time Regional Weather Widget**: Queries the Open-Meteo API to parse telemetry for Southport, UK. Converts raw WMO data codes into user-friendly status readouts, displaying wind speed, ambient humidity, and "feels-like" metrics.
 * **🪙 Custom Watchlist Crypto Ticker**: Integrates with the CoinGecko API. Features an interactive toggle configuration panel allowing users to choose exactly which tokens to monitor, complete with live 24h market cap shift calculations and color-coded gain/loss metrics.
-* **✍️ Persistent Notebook Workspace**: A full CRUD notes page with state tracking mapped to user ids, automatically synchronized using `localStorage`.
 * **🛠️ Task Management Terminal**: A robust task-handling grid featuring categories, due dates, editing overrides, status filtering, and layout matching.
+![DashBoard](./Readme/zen_G7ND4e1lQK.png)
+* **✍️ Persistent Notebook Workspace**: A full CRUD notes page with state tracking mapped to user ids, automatically synchronized using `localStorage`.
+![Notes](./Readme/zen_ZcQJJT6DAB.png)
+* **👤 User Profile**: A comprehensive user profile page with detailed information about the logged-in user, including their name, email, and a brief bio.
+![Profile](./Readme/zen_w2xUHAulCj.png)
+* **⚙️ System Settings**: A comprehensive system settings page with customizable options.
+![Settings](./Readme/zen_YnBW7A3u1f.png)
+
 
 ---
 
