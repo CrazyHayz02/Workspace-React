@@ -11,7 +11,7 @@ A modern, responsive, and secure single-page workspace portal built using React.
 * **🪙 Custom Watchlist Crypto Ticker**: Integrates with the CoinGecko API. Features an interactive toggle configuration panel allowing users to choose exactly which tokens to monitor, complete with live 24h market cap shift calculations and color-coded gain/loss metrics.
 * **🛠️ Task Management Terminal**: A robust task-handling grid featuring categories, due dates, editing overrides, status filtering, and layout matching.
 ![DashBoard](./Readme/zen_G7ND4e1lQK.png)
-* **✍️ Persistent Notebook Workspace**: A full CRUD notes page with state tracking mapped to user ids, automatically synchronized using `localStorage`.
+* **✍️ Persistent Notebook Workspace**: A full CRUD notes page automatically stored with `localStorage`.
 ![Notes](./Readme/zen_ZcQJJT6DAB.png)
 * **👤 User Profile**: A comprehensive user profile page with detailed information about the logged-in user, including their name, email, and a brief bio.
 ![Profile](./Readme/zen_w2xUHAulCj.png)
